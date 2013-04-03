@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\lua-5.2.2\src\lapi.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lauxlib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lbaselib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lbitlib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lcode.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lcorolib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lctype.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\ldblib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\ldebug.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\ldo.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\ldump.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lfunc.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lgc.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\linit.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\liolib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\llex.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lmathlib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lmem.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\loadlib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lobject.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lopcodes.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\loslib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lparser.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lstate.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lstring.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lstrlib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\ltable.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\ltablib.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\ltm.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lundump.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lvm.cpp" />
+    <ClCompile Include="..\lua-5.2.2\src\lzio.cpp" />
+  </ItemGroup>
+</Project>
