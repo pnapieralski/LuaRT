@@ -2,11 +2,9 @@
 #include "Direct3DApp1.h"
 #include "BasicTimer.h"
 
-
-	#include "../lua-5.2.2/src/lua.h"
-	#include "../lua-5.2.2/src/lauxlib.h"
-	#include "../lua-5.2.2/src/lualib.h"
-
+#include "../lua-5.2.2/src/lua.h"
+#include "../lua-5.2.2/src/lauxlib.h"
+#include "../lua-5.2.2/src/lualib.h"
 
 using namespace Windows::ApplicationModel;
 using namespace Windows::ApplicationModel::Core;
@@ -21,6 +19,24 @@ Direct3DApp1::Direct3DApp1() :
 	m_windowClosed(false),
 	m_windowVisible(true)
 {
+}
+
+int calledFromLua(lua_State *L)
+{
+  int argc = lua_gettop(L);
+
+  OutputDebugString(L"-- function called\n");
+
+  for ( int n=1; n<=argc; ++n ) {
+	  wchar_t luaBuff[128];
+	  swprintf(luaBuff, 128, L"%s", lua_tostring(L, n));
+
+	  OutputDebugString(L"-- argument: ");
+      OutputDebugString(luaBuff);
+  }
+
+  lua_pushnumber(L, 123); // return value
+  return 1; // number of return values
 }
 
 void Direct3DApp1::Initialize(CoreApplicationView^ applicationView)
@@ -38,6 +54,36 @@ void Direct3DApp1::Initialize(CoreApplicationView^ applicationView)
 
 	// LUA : Initialize
 	lua_State *L = luaL_newstate();
+
+	luaopen_io(L);
+	luaopen_base(L);
+	luaopen_table(L);
+	luaopen_string(L);
+	luaopen_math(L);
+	
+	int s = luaL_loadfile(L, "helloworld.lua");
+
+	lua_register(L, "calledFromLua", calledFromLua);
+
+	if( s == 0 ) {
+		s = lua_pcall(L, 0, 1, 0);
+	}
+
+	if( s != 0 ) {
+		// Report errors
+		auto sss = lua_tostring(L, -1);
+		wchar_t szBuff[128];
+		swprintf(szBuff, 128, L"LUA ERROR %hs", sss);
+		OutputDebugString(szBuff);
+		OutputDebugString(L"\n");
+		lua_pop(L, 1);
+	}
+
+	if(lua_istable(L, -1))
+	{
+		OutputDebugString(L"Received a table!");
+	}
+
 	lua_close(L);
 }
 
