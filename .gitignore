@@ -1,0 +1,19 @@
+# Compiled source #
+###################
+*.dll
+*.obj
+*.exe
+*.pch
+
+# Folders #
+###########
+Debug/
+ipch/
+
+# Visual Studio Intellisense Database #
+#######################################
+*.opensdf
+
+# Dev license #
+###############
+*.pfx
